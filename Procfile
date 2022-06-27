@@ -1,1 +1,1 @@
-web: python main.py
+web: heroku run bash
