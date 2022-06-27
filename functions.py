@@ -21,12 +21,12 @@ rejected_keyboard = [
 ]
 
 
-async def client_forward(client: TelegramClient, bot_id: int, client_black_list: list):
+async def client_forward(client: TelegramClient, bot_username: int, client_black_list: list):
     @client.on(events.NewMessage(chats=client_black_list, blacklist_chats=True, incoming=True))
     async def forward_message(event):
         if isinstance(event.message.peer_id, PeerChannel):  # forward only channel messages to bot
             print(event.stringify(), "\n Client Forward")
-            await client.send_message(bot_id, event.message)
+            await client.send_message(bot_username, event.message)
 
 
 async def bot_forward(bot: TelegramClient, backend: int, bot_allowed_list: list):
