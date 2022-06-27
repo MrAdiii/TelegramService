@@ -41,7 +41,7 @@ async def bot_callback(bot: TelegramClient, deals_channel, backend):
     async def callback_handler(event):
         print(event.stringify(), "\n Bot CallBack")
         message = await event.get_message()
-        message.reply_markup = ()
+        message.reply_markup = None
         print(message)
         if event.data == b'approved':
             print("Approved")
