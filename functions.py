@@ -44,7 +44,7 @@ async def bot_callback(bot: TelegramClient, deals_channel, backend):
         print(message)
         if event.data == b'approved':
             print("Approved")
-            await bot.send_message(entity=deals_channel, message=message.message)
+            await bot.send_message(entity=deals_channel, message=message)
             await bot.edit_message(entity=backend, message=message.id, buttons=approved_keyboard)
         elif event.data == b'rejected':
             print("Rejected")
